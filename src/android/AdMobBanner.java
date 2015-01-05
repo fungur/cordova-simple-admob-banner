@@ -72,7 +72,7 @@ public class AdMobBanner extends CordovaPlugin {
             @Override
             public void onAdLoaded() {
               super.onAdLoaded();
-              callbackContext.success("admob ad loaded");
+              
             }
           });
           
@@ -96,6 +96,8 @@ public class AdMobBanner extends CordovaPlugin {
           av.loadAd(adRequest);
           
           parentView.addView(av);
+          
+          callbackContext.success("admob added");
           
         }
         
