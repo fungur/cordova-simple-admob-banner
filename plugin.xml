@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.subclosure.admob" version="1.0.0">
+  <name>AdmobBanner</name>
+  <description>Subclosure Admob Plugin</description>
+  <license>Apache 2.0</license>
+  <keywords>cordova,device</keywords>
+  <js-module src="www/admobbanner.js" name="admobbanner">
+    <clobbers target="window.plugins.admobbanner" />
+  </js-module>
+  <!-- android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="AdMobBanner">
+        <param name="android-package" value="com.subclosure.admob.AdMobBanner" />
+      </feature>
+    </config-file>
+    <source-file src="src/android/AdMobBanner.java" target-dir="src/com/subclosure/admob" />
+
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <meta-data android:name="com.google.android.gms.version" android:value="6587000" />
+      <activity android:name="com.google.android.gms.ads.AdActivity" android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <uses-permission android:name="android.permission.INTERNET" />
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    </config-file>
+
+  </platform>
+</plugin>
